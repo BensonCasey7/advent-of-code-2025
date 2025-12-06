@@ -2,7 +2,6 @@ package day5
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	"slices"
 	"sort"
@@ -37,7 +36,6 @@ func PartTwo() int {
 		return ranges[i][0] < ranges[j][0]
 	})
 	combinedRanges := combineRanges(ranges)
-	fmt.Println(combinedRanges)
 	for _, endpoints := range combinedRanges {
 		output += (1 + endpoints[1] - endpoints[0])
 	}
@@ -50,7 +48,6 @@ func combineRanges(ranges [][]int) [][]int {
 	keepCombining := true
 	for keepCombining {
 		keepCombining = false
-		fmt.Println(len(output))
 
 		for idx, endpoints := range output {
 			for i := idx + 1; i < len(output); i++ {

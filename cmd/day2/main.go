@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/bensoncasey7/advent-of-code-2025/day2"
+	"github.com/bensoncasey7/advent-of-code-2025/helpers"
 )
 
 func main() {
-	fmt.Printf("Part one: %d\n", day2.PartOne())
-	fmt.Printf("Part two: %d\n", day2.PartTwo())
+	helpers.TimeSolution("Part one", day2.PartOne)
+	helpers.TimeSolution("Part two", day2.PartTwo)
 }
