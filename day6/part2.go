@@ -1,31 +1,16 @@
 package day6
 
 import (
-	"bufio"
-	"os"
 	"strconv"
 	"strings"
+
+	"github.com/bensoncasey7/advent-of-code-2025/helpers"
 )
 
 func PartTwo() int {
-	file, err := os.Open("day6/input.txt")
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
+	lines := helpers.ReadInputFile("day6/input.txt")
 
 	output := 0
-	lines := []string{}
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
-		panic(err)
-	}
-
 	operands, operations := splitInputByColumns(lines)
 
 	for i, operation := range operations {

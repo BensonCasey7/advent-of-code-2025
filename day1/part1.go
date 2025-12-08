@@ -1,25 +1,18 @@
 package day1
 
 import (
-	"bufio"
-	"os"
 	"strconv"
+
+	"github.com/bensoncasey7/advent-of-code-2025/helpers"
 )
 
 func PartOne() int {
-	file, err := os.Open("day1/input.txt")
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
+	lines := helpers.ReadInputFile("day1/input.txt")
 
 	currentNumber := 50
 	countOfZeros := 0
 
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		line := scanner.Text()
-
+	for _, line := range lines {
 		direction := string(line[0])
 		num, err := strconv.Atoi(line[1:])
 		if err != nil {
@@ -34,10 +27,6 @@ func PartOne() int {
 		if currentNumber == 0 {
 			countOfZeros++
 		}
-	}
-
-	if err := scanner.Err(); err != nil {
-		panic(err)
 	}
 
 	return countOfZeros

@@ -1,25 +1,16 @@
 package day4
 
 import (
-	"bufio"
-	"os"
+	"github.com/bensoncasey7/advent-of-code-2025/helpers"
 )
 
 func PartOne() int {
-	file, err := os.Open("day4/input.txt")
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
+	lines := helpers.ReadInputFile("day4/input.txt")
 
 	output := 0
-	currentLine := 0
 	locations := [][]int{}
 	columnCount := 0
-	for scanner.Scan() {
-		line := scanner.Text()
+	for currentLine, line := range lines {
 		columnCount = len(line)
 
 		for idx, char := range line {
@@ -27,9 +18,8 @@ func PartOne() int {
 				locations = append(locations, []int{currentLine, idx})
 			}
 		}
-
-		currentLine++
 	}
+	currentLine := len(lines)
 
 	grid := make([][]bool, currentLine)
 	for i := range grid {
@@ -51,10 +41,6 @@ func PartOne() int {
 		if hitCount < 4 {
 			output++
 		}
-	}
-
-	if err := scanner.Err(); err != nil {
-		panic(err)
 	}
 
 	return output

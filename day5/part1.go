@@ -1,27 +1,20 @@
 package day5
 
 import (
-	"bufio"
-	"os"
 	"strconv"
 	"strings"
+
+	"github.com/bensoncasey7/advent-of-code-2025/helpers"
 )
 
 func PartOne() int {
-	file, err := os.Open("day5/input.txt")
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
+	lines := helpers.ReadInputFile("day5/input.txt")
 
 	output := 0
 	isReadingRanges := true
 	ranges := [][]int{}
 	ingredientIds := []int{}
-	for scanner.Scan() {
-		line := scanner.Text()
+	for _, line := range lines {
 
 		if line == "" {
 			isReadingRanges = false

@@ -1,24 +1,17 @@
 package day3
 
 import (
-	"bufio"
-	"os"
 	"strconv"
 	"strings"
+
+	"github.com/bensoncasey7/advent-of-code-2025/helpers"
 )
 
 func PartTwo() int {
-	file, err := os.Open("day3/input.txt")
-	if err != nil {
-		panic(err)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
+	lines := helpers.ReadInputFile("day3/input.txt")
 
 	output := 0
-	for scanner.Scan() {
-		line := scanner.Text()
+	for _, line := range lines {
 
 		digits := []int{}
 
@@ -28,10 +21,6 @@ func PartTwo() int {
 		}
 
 		output += maxDigits(digits, 12)
-	}
-
-	if err := scanner.Err(); err != nil {
-		panic(err)
 	}
 
 	return output
