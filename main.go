@@ -10,6 +10,7 @@ import (
 	"github.com/bensoncasey7/advent-of-code-2025/day4"
 	"github.com/bensoncasey7/advent-of-code-2025/day5"
 	"github.com/bensoncasey7/advent-of-code-2025/day6"
+	"github.com/bensoncasey7/advent-of-code-2025/day7"
 	"github.com/bensoncasey7/advent-of-code-2025/helpers"
 )
 
@@ -44,6 +45,10 @@ func main() {
 	fmt.Println("=== Day 6 ===")
 	helpers.TimeSolution("Part one", day6.PartOne)
 	helpers.TimeSolution("Part two", day6.PartTwo)
+
+	fmt.Println("=== Day 7 ===")
+	helpers.TimeSolution("Part one", day7.PartOne)
+	helpers.TimeSolution("Part two", day7.PartTwo)
 
 	fmt.Printf("\n=== Total time: %v ===\n", time.Since(start))
 }
